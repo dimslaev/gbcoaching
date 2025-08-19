@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GB Coaching - Professional Coaching in Geneva</title>
+    <meta name="description" content="Professional coaching services in Geneva by Gianna Battolo. Certified coach helping individuals and teams through transition, conflict resolution, and personal growth.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-teal: #1a7f8b;
+            --soft-teal: #2d9caa;
+            --accent-teal: #45b7c8;
+            --light-teal: #e8f6f8;
+            --deep-teal: #0f5459;
+            --warm-white: #fefefe;
+            --soft-gray: #f8f9fa;
+            --text-dark: #2c3e50;
+            --text-medium: #5d6d7e;
+            --text-light: #85929e;
+            --gold-accent: #d4af37;
+            --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--warm-white);
+            overflow-x: hidden;
+        }
+
+        .serif {
+            font-family: 'Crimson Text', serif;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 20px rgba(26, 127, 139, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .logo-text {
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--primary-teal);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-teal);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--light-teal) 0%, var(--soft-teal) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100px, -100px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            color: var(--deep-teal);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: var(--primary-teal);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary-teal);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 8px 30px rgba(26, 127, 139, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(26, 127, 139, 0.4);
+            background: var(--soft-teal);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 5rem 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: var(--transition);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-teal);
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            text-align: center;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        /* Questions Section */
+        .questions {
+            background: var(--soft-gray);
+        }
+
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .question-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-category {
+            font-weight: 600;
+            color: var(--primary-teal);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .question-text {
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        /* Solutions Section */
+        .solutions-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .solutions-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-medium);
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .benefits-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+            color: var(--text-medium);
+        }
+
+        .benefits-list li::before {
+            content: '•';
+            position: absolute;
+            top: 1px;
+            left: 0;
+            color: var(--accent-teal);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .solutions-visual {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            font-style: italic;
+            background: var(--light-teal);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+        }
+
+        /* Actions Section */
+        .actions {
+            background: var(--light-teal);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-teal);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        .step-title {
+            font-weight: 600;
+            color: var(--primary-teal);
+            margin-bottom: 1rem;
+        }
+
+        .step-description {
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        /* Bio Section */
+        .bio-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+
+        .bio-image {
+            text-align: center;
+        }
+
+        .bio-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .bio-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-medium);
+        }
+
+        .bio-text .highlight {
+            color: var(--primary-teal);
+            font-weight: 600;
+        }
+
+        .credentials {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--light-teal);
+            border-radius: 12px;
+        }
+
+        .credentials img {
+            max-width: 200px;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--deep-teal);
+            color: white;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info h3 {
+            color: var(--accent-teal);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+
+        .contact-details p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details a {
+            color: var(--accent-teal);
+            text-decoration: none;
+        }
+
+        .testimonials h3 {
+            margin-bottom: 1rem;
+        }
+
+        .testimonial {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            color: var(--accent-teal);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Quote Sections */
+        .quote-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--soft-gray);
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--primary-teal);
+            margin-bottom: 1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .quote-author {
+            color: var(--text-medium);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-teal);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .solutions-content,
+            .bio-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .question-grid,
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--primary-teal);
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/gbcoaching_logo.jpg" alt="GB Coaching Logo">
+                <span class="logo-text">gbcoaching</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#questions">Questions</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#actions">Process</a></li>
+                <li><a href="#bio">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Professional Coaching in Geneva</h1>
+            <p class="hero-tagline">Transforming challenges into opportunities for growth</p>
+            <p class="hero-quote serif">"When there's movement, everything changes. But each of us remains unique."</p>
+            <a href="#contact" class="cta-button">Start Your Journey</a>
+        </div>
+    </section>
+
+    <!-- Questions Section -->
+    <section id="questions" class="section questions">
+        <div class="container">
+            <h2 class="section-title">Do You Find Yourself Wondering?</h2>
+            <p class="section-subtitle">Explore the questions that might be on your mind and discover how coaching can help you find the answers</p>
+            
+            <div class="question-grid">
+                <div class="question-card">
+                    <div class="question-category">Career & Change</div>
+                    <div class="question-text">
+                        Do you happen to think about changing your job? Getting rid of stressful situations?
+                    </div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-category">Direction & Purpose</div>
+                    <div class="question-text">
+                        Do you have the sensation that you are not at the right place? That you often start projects without reaching your goals?
+                    </div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-category">Relationships & Conflicts</div>
+                    <div class="question-text">
+                        Do you feel you need to get out of a conflict? Are you unsatisfied by the outcome of your actions?
+                    </div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-category">Dreams & Fulfillment</div>
+                    <div class="question-text">
+                        Do you wish to undertake a project dear to your heart? To live happier and more authentically?
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section 1 -->
+    <div class="quote-section">
+        <div class="quote-text serif">"Nothing happens if nothing moves."</div>
+        <div class="quote-author">Albert Einstein</div>
+    </div>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="section solutions">
+        <div class="container">
+            <h2 class="section-title">Discover Your Solutions</h2>
+            <p class="section-subtitle">Like a river finding its natural course, we'll help you navigate towards your authentic path</p>
+            
+            <div class="solutions-content">
+                <div class="solutions-text">
+                    <p>Did you ever contemplate a river and its running water? Or a pond and its still water?</p>
+                    
+                    <p>If the pond seems to be inhabited by dark life and the river by a vivid stream, the magic about these two phenomenons is that each of them has a specific function and together they contribute to the natural stability of aquatic life.</p>
+                    
+                    <p>On the basis of this ecosystem example, <strong class="highlight">gbcoaching</strong> proposes a process of <strong class="highlight">exploration</strong> to open new channels. Instead of struggling against what happens, we shall move forward with the movement, just like a surfer making the best of the wave.</p>
+                    
+                    <p>This process will bring you <strong class="highlight">benefits</strong> such as improvement in terms of:</p>
+                    
+                    <ul class="benefits-list">
+                        <li>Motivation and self-esteem</li>
+                        <li>Innovation and creativity</li>
+                        <li>Self-leadership abilities</li>
+                        <li>Positive emotional management</li>
+                        <li>Quality of life and authenticity</li>
+                    </ul>
+                </div>
+                
+                <div class="solutions-visual">
+                    <p>"Coaching is intended to give you an anchorage point in your personal values and authenticity while accompanying you as you soar to new heights."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section 2 -->
+    <div class="quote-section">
+        <div class="quote-text serif">"It's when you are able to stop that you start seeing. And if you can see, you can understand."</div>
+        <div class="quote-author">Thich Nhat Hanh</div>
+    </div>
+
+    <!-- Actions Section -->
+    <section id="actions" class="section actions">
+        <div class="container">
+            <h2 class="section-title">Your Coaching Journey</h2>
+            <p class="section-subtitle">A clear, structured approach to help you transition from awareness to action</p>
+            
+            <div class="process-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Introductory Session</div>
+                    <div class="step-description">Establish initial contact and confirm the coaching process meets your needs and expectations.</div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Goal Setting</div>
+                    <div class="step-description">Define clear objectives and create a personalized plan adapted to your lifestyle and preferences.</div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Active Coaching</div>
+                    <div class="step-description">Engage in 4-8 sessions (90 minutes each) or flexible scheduling options including phone sessions.</div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Transformation</div>
+                    <div class="step-description">Develop your personal strategy and action plan to reach your goals authentically and successfully.</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 1.1rem; color: var(--text-medium); max-width: 600px; margin: 0 auto;">
+                    Coaching is based on <strong class="highlight">partnership</strong> and personal <strong class="highlight">engagement</strong> within the International Coach Federation's (ICF) Code of Ethics. All personal data is kept strictly confidential.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section 3 -->
+    <div class="quote-section">
+        <div class="quote-text serif">"Each second may be a new departure. It's a matter of choice. Your choice."</div>
+        <div class="quote-author">Indian Thought</div>
+    </div>
+
+    <!-- Bio Section -->
+    <section id="bio" class="section bio">
+        <div class="container">
+            <h2 class="section-title">About Gianna Battolo</h2>
+            <p class="section-subtitle">Professional coach certified by the Institut de Coaching (IDC) in Geneva</p>
+            
+            <div class="bio-content">
+                <div class="bio-image">
+                    <img src="assets/gianna_batolo2.jpg" alt="Gianna Battolo" style="border-radius: 50%; width: 250px; height: 250px; object-fit: cover;">
+                    
+                    <div class="credentials">
+                        <p><strong>Certifications:</strong></p>
+                        <ul style="text-align: left; list-style: none; padding-left: 0;">
+                            <li>• Institut de Coaching (IDC), Geneva</li>
+                            <li>• Associate Certified Coach (ACC), ICF</li>
+                            <li>• Business Administration (HEC)</li>
+                            <li>• Management and Analysis of Public Policy (DESMAP)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bio-text">
+                    <p>My name is Gianna Battolo, and I'm a professional coach certified by the Institut de Coaching (IDC) in Geneva, and Associate Certified Coach (ACC) within the International Coach Federation (ICF), where I am an active member of the ICF Switzerland Committee.</p>
+                    
+                    <p>Working for more than 20 years at national and multinational companies has provided me the opportunity to understand and absorb various types of organisational and managerial cultures, as well as the value of an organization's human resources.</p>
+                    
+                    <p>Due to periods of economic downturn and financial crisis over the years, I had many opportunities to observe how multinational companies and their staff evolve through significant change such as innovation, mergers or reorganization.</p>
+                    
+                    <p>In 2007, my sights turned in a new direction. After IDC training, I decided to create <span class="highlight">gbcoaching</span> with the aim of supporting individuals and/or groups during phases of professional transition, conflict resolution or simply the need for space to spread their wings!</p>
+                    
+                    <p><strong class="highlight">"When the heart is calm, everything becomes clear."</strong></p>
+                    
+                    <p>I feel a real passion for movement and that's why I practice taichi where the tradition of this martial art teaches us how to increase our inner force in order to strengthen our gravity centre and vitality. Nature is a great source of energy and inspiration for me.</p>
+                    
+                    <p>I speak fluent French, English and Italian and practice coaching in all 3 languages.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section 4 -->
+    <div class="quote-section">
+        <div class="quote-text serif">"All our dreams may become reality… if we have the heart to pursue them."</div>
+        <div class="quote-author">Walt Disney</div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.8);">Ready to begin your transformation journey? Let's start the conversation.</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-details">
+                        <p><strong>Gianna Battolo</strong></p>
+                        <p>Rue de Contamines 23</p>
+                        <p>1206 Geneva, Switzerland</p>
+                        <p><br></p>
+                        <p>Email: <a href="mailto:gianna.battolo@gbcoaching.ch">gianna.battolo@gbcoaching.ch</a></p>
+                        <p>Phone: +41(0)79 720 94 49</p>
+                    </div>
+                    
+                    <div class="contact-details">
+                        <h3>Languages</h3>
+                        <p>Coaching available in French, English, and Italian</p>
+                    </div>
+
+                    <div class="contact-details" style="margin-bottom: 0">
+                        <h3>Ethics & Standards</h3>
+                        <p>All coaching sessions follow the International Coach Federation's Code of Ethics with strict confidentiality maintained at all times.</p>
+                    </div>
+                </div>
+                
+                <div class="testimonials">
+                    <h3>Client Testimonials</h3>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-text">
+                            "As a member of the International Coach Federation Switzerland (ICF) team since 2008, Gianna consistently delivers on her promises. She has demonstrated interest and capacity to learn and adapt with grace and openness."
+                        </div>
+                        <div class="testimonial-author">Virginia Williams, MBA, PCC | President ICF Switzerland</div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-text">
+                            "Grâce à son professionalisme et son aide, nous avons maintenant tout en main pour réussir notre mission et je la remercie encore vivement pour son soutien, sa volonté et son énergie remarquable."
+                        </div>
+                        <div class="testimonial-author">Eléonore Alcaraz Smatlik | Présidente Fédération act-art Genève</div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-text">
+                            "L'esplorazione 'dell'isola dalle mille possibilità' mi ha portato ben al di là della destinazione che avevo deciso. Grazie a Gianna per avermi accompagnata in questo viaggio!"
+                        </div>
+                        <div class="testimonial-author">Francesca Giulia Mereu | Waterlogic</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>© 2024 gbcoaching. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="#questions">Questions</a>
+                <a href="#solutions">Solutions</a>
+                <a href="#actions">Process</a>
+                <a href="#bio">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollProgress = (scrollTop / scrollHeight) * 100;
+            document.querySelector('.scroll-progress').style.width = scrollProgress + '%';
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add staggered animation to question cards
+        const questionCards = document.querySelectorAll('.question-card');
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        questionCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            cardObserver.observe(card);
+        });
+
+        // Add staggered animation to process steps
+        const stepCards = document.querySelectorAll('.step-card');
+        const stepObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 150);
+                }
+            });
+        }, observerOptions);
+
+        stepCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            stepObserver.observe(card);
+        });
+    </script>
+</body>
+</html>
