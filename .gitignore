@@ -1,8 +1,7 @@
 # Exclude old site files
-*-en.html
-*-fr.html
-*-it.html
-*.swf
+manual
+archives
+
 # OS generated files
 .DS_Store
 .DS_Store?
